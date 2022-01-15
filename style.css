@@ -13,3 +13,16 @@ body{
     flex-flow: column nowrap;
     justify-content: space-around
 }
+
+.subcontainer{
+    display: flex;
+    justify-content: space-around;
+    flex: 1;
+}
+.gridItem{
+    display: flex;
+    background-color: cornsilk;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
