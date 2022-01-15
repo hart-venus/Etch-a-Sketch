@@ -9,4 +9,7 @@ body{
     background-color: cornsilk;
     width: 520px;
     height: 520px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around
 }
