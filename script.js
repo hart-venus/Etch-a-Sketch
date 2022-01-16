@@ -4,6 +4,9 @@ const clear = document.getElementById('clear')
 const normalmode = document.getElementById('normal')
 const rainbowmode = document.getElementById('rainbow')
 const greyscalemode = document.getElementById('grey')
+// 0: normal 1: rainbow 2: greyscale
+let currentmode = 0
+
 
 function generate(res){
     for(let i = 0; i <res;i++){
@@ -22,10 +25,14 @@ function generate(res){
     }
     document.querySelectorAll('.gridItem').forEach(item => {
         item.addEventListener('mouseover', function(event){
-            event.target.style.backgroundColor = 'black'
+            if(currentmode == 0){
+                event.target.style.backgroundColor = 'black'
+            }
+            
         })
     })
 }
+
 generate(16)
 //generate(parseInt(prompt('how many squares you fucker')))
 
@@ -39,6 +46,11 @@ clear.addEventListener('click', () => {
         generate(resolution)
     }
 })
+
+normalmode.addEventListener('click', () => {
+    currentmode = 0
+})
+
 
 // normalmode.addEventListener('click', () )
 
