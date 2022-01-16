@@ -1,6 +1,9 @@
 
 const container = document.getElementById('container')
 const clear = document.getElementById('clear')
+const normalmode = document.getElementById('normal')
+const rainbowmode = document.getElementById('rainbow')
+const greyscalemode = document.getElementById('grey')
 
 function generate(res){
     for(let i = 0; i <res;i++){
@@ -23,13 +26,21 @@ function generate(res){
         })
     })
 }
-
+generate(16)
 //generate(parseInt(prompt('how many squares you fucker')))
 
 clear.addEventListener('click', () => {
-    generate(12)
+    while (container.firstChild) {
+        container.removeChild(container.lastChild);
+      }
+
+    let resolution  = parseInt(prompt('How big? (number not bigger than 100)'))
+    if(resolution<101){
+        generate(resolution)
+    }
 })
 
+// normalmode.addEventListener('click', () )
 
 
 
