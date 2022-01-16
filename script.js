@@ -34,8 +34,9 @@ function generate(res){
                 event.target.style.backgroundColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
             }
             else{
-                //event.target.style.backgroundColor = LightenDarkenColor(event.target.style.backgroundColor, -20) 
-                console.log(window.getComputedStyle(event.target).backgroundColor)
+                //event.target.style.backgroundColor = LightenDarkenColor(event.target.style.backgroundCorlo, -20) 
+                let bgClr = window.getComputedStyle(event.target).backgroundColor
+                event.target.style.backgroundColor = DarkenColor(bgClr, 20)
             }
             
         })
@@ -44,7 +45,25 @@ function generate(res){
 
 generate(16)
 //generate(parseInt(prompt('how many squares you fucker')))
+function DarkenColor(col,amt) {
+    let rgb = col;
+    let newRgb = []
+    rgb = rgb.substring(4, rgb.length-1)
+         .replace(/ /g, '')
+         .split(',');
 
+    rgb.forEach(value => {
+        if(value>amt){
+            newRgb.push(value-amt)
+        }
+        else{
+            newRgb.push('0')
+        }
+    })
+    console.log(col)
+    return('rgb('+newRgb[0]+', '+newRgb[1]+', ' + newRgb[2]+')')
+
+}
 clear.addEventListener('click', () => {
     while (container.firstChild) {
         container.removeChild(container.lastChild);
@@ -68,10 +87,6 @@ greyscalemode.addEventListener('click', () => {
 
 // normalmode.addEventListener('click', () )
 
-function LightenDarkenColor(col, amt) {
-    col = parseInt(col, 16);
-    return (((col & 0x0000FF) + amt) | ((((col >> 8) & 0x00FF) + amt) << 8) | (((col >> 16) + amt) << 16)).toString(16);
-  }
   
 
 
