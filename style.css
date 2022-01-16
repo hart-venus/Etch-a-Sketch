@@ -6,7 +6,7 @@ body{
 }
 
 #container{
-    background-color: cornsilk;
+    background-color: #fff8dc;
     width: 520px;
     height: 520px;
     display: flex;
@@ -21,7 +21,7 @@ body{
 }
 .gridItem{
     display: flex;
-    background-color: cornsilk;
+    background-color: #fff8dc;
     justify-content: center;
     align-items: center;
     flex: 1;
